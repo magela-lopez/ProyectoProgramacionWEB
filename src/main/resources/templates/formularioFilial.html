@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body  style="background: white">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">WEB</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home</a>
+            <a class="nav-item nav-link" href="/filiais">Filiais</a>
+            <a class="nav-item nav-link" href="/funcionarios">Funcionarios</a>
+            <a class="nav-item nav-link" href="/includefuncionario">Cadastrar Funcionario</a>
+            <a class="nav-item nav-link" href="/includefilial">Cadastrar Filial</a>
+            <a class="nav-item nav-link" href="/logout">Sair</a>
+        </div>
+    </div>
+</nav>
+
+<nav aria-label="breadcrumb" style="margin: 20px" >
+    <ol class="breadcrumb" style="background: whitesmoke" >
+        <li class="breadcrumb-item active" aria-current="page" style="background: whitesmoke"><a href="/filiais">Filiais</a></li>
+        <li class="breadcrumb-item active" aria-current="page" style="background: whitesmoke">Cadastrar Filial</li>
+
+    </ol>
+</nav>
+<div>
+    <th:bloc th:include="mensagemValidacao"></th:bloc>
+    <form action="#" th:action="@{/includefilial}" method="post" th:object="${filiais}">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input th:field="*{nome}" type="text" class="form-control" id="nome" name="nome" placeholder="*Nome Completo">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input th:field="*{email}" type="email" class="form-control" id="email" name="email" placeholder="*Email">
+        </div>
+        <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input th:field="*{telefone}" type="text" class="form-control" id="telefone" name="telefone" placeholder="*Telefone">
+        </div>
+        <div class="form-group">
+            <label for="cidade">Cidade</label>
+            <input th:field="*{cidade}" type="text" class="form-control" id="cidade" name="cidade" placeholder="*Cidade">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
+
+</body>
+</html>
